@@ -1,0 +1,82 @@
+@charset "UTF-8";
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  height: 100vh;
+  padding-top: 10em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+
+.quoteGenerator {
+  margin: 0 auto;
+  width: 600px;
+  background-color: white;
+  padding: 4em;
+  border-radius: 5px;
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease;
+}
+
+.quoteGenerator h2 {
+  height: 5em;
+  margin: 0;
+}
+
+.quoteGenerator h2:before {
+  content: "“";
+}
+
+.quoteGenerator h2:after {
+  content: "”";
+}
+
+.quoteGenerator .author {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 3em;
+}
+
+.quoteGenerator .author p {
+  margin: 0;
+}
+
+.quoteGenerator .author .line {
+  height: 2px;
+  width: 5em;
+  margin-right: 0.5em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+
+.quoteGenerator button {
+  color: white;
+  border: none;
+  padding: 1em 2em;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+  float: right;
+}
+
+.quoteGenerator button:hover {
+  opacity: 70%;
+}
+
+.quoteGenerator button:focus {
+  outline: 0;
+}
+/*# sourceMappingURL=style.css.map */
