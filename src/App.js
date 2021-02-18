@@ -12,42 +12,32 @@ export default class App extends Component {
     backgroundColor: "blue",
   };
 
+  //get random quote and color
   generateQuote = () => {
-    //get random number
-    let num = this.getRandomNum();
+    let num = this.randomListIndex(quotes);
 
     this.setState({
       quote: quotes[num].quote,
       author: quotes[num].author,
-      backgroundColor: this.getRandomColor(360, 40, 70),
+      backgroundColor: this.randomHSL(360, 40, 70),
     });
   };
 
-  //generate random color
-  getRandomColor = (h, s, l) => {
-    let hue = (h) => {
-      return Math.floor(Math.random() * h);
+  //generate random HSL color
+  randomHSL = (h, s, l) => {
+    let randomNum = (max) => {
+      return Math.floor(Math.random() * max);
     };
-
-    let saturation = (s) => {
-      return Math.floor(Math.random() * s);
-    };
-
-    let lightness = (l) => {
-      return Math.floor(Math.random() * l);
-    };
-
-    let color = `hsl(${hue(h)},${saturation(s)}%,${lightness(l)}%)`;
-    return color;
+    return `hsl(${randomNum(h)},${randomNum(s)}%,${randomNum(l)}%)`;
   };
 
-  //generate random number
-  getRandomNum = () => {
+  //generate random list index number
+  randomListIndex = (list) => {
     //generate number
-    let num = Math.floor(Math.random() * quotes.length);
+    let num = Math.floor(Math.random() * list.length);
     //make sure number is different
     if (num == this.state.num) {
-      return this.getRandomNum();
+      return this.randomListIndex(list);
     } else {
       this.setState({
         num: num,
