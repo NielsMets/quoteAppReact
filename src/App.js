@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
 import QuoteAndAuthor from "./components/QuoteAndAuthor";
-import quotes from "./QuoteDB";
 import "./styles/style.css";
+import quotes from "./quotes.json";
 
 function App() {
   //state
   const [num, setNum] = useState(0);
-  const [quote, setQuote] = useState(quotes[0].quote);
-  const [author, setAuthor] = useState(quotes[0].author);
+  const [quote, setQuote] = useState(quotes.quotes[0].quote);
+  const [author, setAuthor] = useState(quotes.quotes[0].author);
   const [bgColor, setBgColor] = useState("white");
 
   useEffect(() => {
-    setBgColor(randomHSL(360, 0, 40, 0, 70, 40));
+    randomQuote();
   }, []);
 
   //get random quote and color
   const randomQuote = () => {
-    let num = randomListIndex(quotes);
+    let num = randomListIndex(quotes.quotes);
 
-    setQuote(quotes[num].quote);
-    setAuthor(quotes[num].author);
-    setBgColor(randomHSL(360, 0, 40, 0, 60, 40));
+    setQuote(quotes.quotes[num].quote);
+    setAuthor(quotes.quotes[num].author);
+    setBgColor(randomHSL(360, 0, 50, 0, 60, 40));
   };
 
   //generate random HSL color
@@ -32,7 +32,10 @@ function App() {
       }
       return num;
     };
-    return `hsl(${randomNum(h)},${randomNum(s)}%,${randomNum(l, lMin)}%)`;
+    return `hsl(${randomNum(h, hMin)},${randomNum(s, sMin)}%,${randomNum(
+      l,
+      lMin
+    )}%)`;
   };
 
   //generate random list index number
@@ -51,7 +54,7 @@ function App() {
   return (
     <section style={{ backgroundColor: bgColor }}>
       <QuoteAndAuthor
-        generateQuote={randomQuote}
+        randomQuote={randomQuote}
         quote={quote}
         author={author}
         bgColor={bgColor}

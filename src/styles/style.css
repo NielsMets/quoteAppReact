@@ -7,26 +7,37 @@ body {
 
 section {
   height: 100vh;
-  padding-top: 10em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-transition: background-color 1s ease;
   transition: background-color 1s ease;
+  padding: 3em 1em;
 }
 
 .quoteGenerator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0 auto;
-  width: 600px;
+  max-width: 600px;
   background-color: white;
-  padding: 4em;
+  padding: 4em 1em;
   border-radius: 5px;
   -webkit-transition: color 1s ease;
   transition: color 1s ease;
+  height: 100%;
 }
 
 .quoteGenerator h2 {
-  height: 5em;
+  min-height: 4em;
   margin: 0;
+  margin-bottom: 1em;
 }
 
 .quoteGenerator h2:before {
@@ -69,7 +80,7 @@ section {
   padding: 1em 2em;
   -webkit-transition: background-color 1s ease;
   transition: background-color 1s ease;
-  float: right;
+  margin-top: auto;
 }
 
 .quoteGenerator button:hover {
@@ -78,5 +89,19 @@ section {
 
 .quoteGenerator button:focus {
   outline: 0;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-top: 10em;
+  }
+  .quoteGenerator {
+    padding: 4em;
+    height: initial;
+  }
+  .quoteGenerator button {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
 }
 /*# sourceMappingURL=style.css.map */
