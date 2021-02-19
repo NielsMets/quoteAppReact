@@ -1,30 +1,31 @@
-import React, { useEffect, Component } from "react";
+import React, { useEffect, useState } from "react";
 import QuoteAndAuthor from "./components/QuoteAndAuthor";
 import quotes from "./QuoteDB";
 import "./styles/style.css";
 
-export default class App extends Component {
+function App() {
   //state
-  state = {
-    num: 0,
-    quote: quotes[0].quote,
-    author: quotes[0].author,
-    backgroundColor: "blue",
-  };
+
+  const [num, setNum] = useState(0);
+  const [quote, setQuote] = useState(quotes[0].quote);
+  const [author, setAuthor] = useState(quotes[0].author);
+  const [bgColor, setBgColor] = useState("white");
+
+  useEffect(() => {
+    setBgColor(randomHSL(360, 40, 70));
+  }, []);
 
   //get random quote and color
-  generateQuote = () => {
-    let num = this.randomListIndex(quotes);
+  const randomQuote = () => {
+    let num = randomListIndex(quotes);
 
-    this.setState({
-      quote: quotes[num].quote,
-      author: quotes[num].author,
-      backgroundColor: this.randomHSL(360, 40, 70),
-    });
+    setQuote(quotes[num].quote);
+    setAuthor(quotes[num].author);
+    setBgColor(randomHSL(360, 40, 70));
   };
 
   //generate random HSL color
-  randomHSL = (h, s, l) => {
+  const randomHSL = (h, s, l) => {
     let randomNum = (max) => {
       return Math.floor(Math.random() * max);
     };
@@ -32,25 +33,28 @@ export default class App extends Component {
   };
 
   //generate random list index number
-  randomListIndex = (list) => {
+  const randomListIndex = (list) => {
     //generate number
-    let num = Math.floor(Math.random() * list.length);
+    let i = Math.floor(Math.random() * list.length);
     //make sure number is different
-    if (num == this.state.num) {
-      return this.randomListIndex(list);
+    if (i == num) {
+      return randomListIndex(list);
     } else {
-      this.setState({
-        num: num,
-      });
+      setNum(i);
     }
-    return num;
+    return i;
   };
 
-  render() {
-    return (
-      <section style={{ backgroundColor: this.state.backgroundColor }}>
-        <QuoteAndAuthor generateQuote={this.generateQuote} quote={this.state} />
-      </section>
-    );
-  }
+  return (
+    <section style={{ backgroundColor: bgColor }}>
+      <QuoteAndAuthor
+        generateQuote={randomQuote}
+        quote={quote}
+        author={author}
+        bgColor={bgColor}
+      />
+    </section>
+  );
 }
+
+export default App;
