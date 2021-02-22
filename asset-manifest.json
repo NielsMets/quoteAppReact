@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/quoteAppReact/static/css/main.6101fccc.chunk.css",
+    "main.css": "/quoteAppReact/static/css/main.6840c2d8.chunk.css",
     "main.js": "/quoteAppReact/static/js/main.5e81801a.chunk.js",
     "main.js.map": "/quoteAppReact/static/js/main.5e81801a.chunk.js.map",
     "runtime-main.js": "/quoteAppReact/static/js/runtime-main.fcd8cca9.js",
@@ -10,13 +10,13 @@
     "static/js/3.beca4a78.chunk.js": "/quoteAppReact/static/js/3.beca4a78.chunk.js",
     "static/js/3.beca4a78.chunk.js.map": "/quoteAppReact/static/js/3.beca4a78.chunk.js.map",
     "index.html": "/quoteAppReact/index.html",
-    "static/css/main.6101fccc.chunk.css.map": "/quoteAppReact/static/css/main.6101fccc.chunk.css.map",
+    "static/css/main.6840c2d8.chunk.css.map": "/quoteAppReact/static/css/main.6840c2d8.chunk.css.map",
     "static/js/2.b6e5b570.chunk.js.LICENSE.txt": "/quoteAppReact/static/js/2.b6e5b570.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fcd8cca9.js",
     "static/js/2.b6e5b570.chunk.js",
-    "static/css/main.6101fccc.chunk.css",
+    "static/css/main.6840c2d8.chunk.css",
     "static/js/main.5e81801a.chunk.js"
   ]
 }
