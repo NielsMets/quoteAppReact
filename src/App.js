@@ -3,7 +3,7 @@ import "./styles/style.css";
 import QuoteBox from "./components/QuoteBox";
 import { randomHSL } from "./functions/randomHSL";
 
-function App() {
+const App = () => {
   //state
   const [bgColor, setBgColor] = useState("white");
 
@@ -16,6 +16,6 @@ function App() {
       <QuoteBox bgColor={bgColor} setBgColor={setBgColor} />
     </section>
   );
-}
+};
 
 export default App;

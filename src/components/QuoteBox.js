@@ -6,8 +6,7 @@ import Quote from "./Quote";
 import { randomListIndex } from "../functions/randomListIndex";
 import { randomHSL } from "../functions/randomHSL";
 
-export default function (props) {
-  const { bgColor, setBgColor } = props;
+export default ({ bgColor, setBgColor }) => {
   const [num, setNum] = useState(0);
   const [quote, setQuote] = useState(quotes.quotes[0].quote);
   const [author, setAuthor] = useState(quotes.quotes[0].author);
@@ -30,4 +29,4 @@ export default function (props) {
       <Button randomQuote={randomQuote} bgColor={bgColor} />
     </div>
   );
-}
+};

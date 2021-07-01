@@ -1,3 +1,3 @@
-export default function ({ quote }) {
+export default ({ quote }) => {
   return <h2>{quote}</h2>;
-}
+};
