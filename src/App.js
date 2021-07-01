@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import QuoteAndAuthor from "./components/QuoteAndAuthor";
+import QuoteBox from "./components/QuoteBox";
 import "./styles/style.css";
 import quotes from "./quotes.json";
+
+import { randomListIndex } from "./functions/randomListIndex";
+import { randomHSL } from "./functions/randomHSL";
 
 function App() {
   //state
@@ -16,44 +19,16 @@ function App() {
 
   //get random quote and color
   const randomQuote = () => {
-    let num = randomListIndex(quotes.quotes);
+    setNum(randomListIndex(quotes.quotes, num, setNum));
 
     setQuote(quotes.quotes[num].quote);
     setAuthor(quotes.quotes[num].author);
     setBgColor(randomHSL(360, 0, 50, 0, 60, 40));
   };
 
-  //generate random HSL color
-  const randomHSL = (h, hMin, s, sMin, l, lMin) => {
-    let randomNum = (max, min) => {
-      let num = Math.floor(Math.random() * max);
-      if (num < min) {
-        num = min;
-      }
-      return num;
-    };
-    return `hsl(${randomNum(h, hMin)},${randomNum(s, sMin)}%,${randomNum(
-      l,
-      lMin
-    )}%)`;
-  };
-
-  //generate random list index number
-  const randomListIndex = (list) => {
-    //generate number
-    let i = Math.floor(Math.random() * list.length);
-    //make sure number is different
-    if (i == num) {
-      return randomListIndex(list);
-    } else {
-      setNum(i);
-    }
-    return i;
-  };
-
   return (
     <section style={{ backgroundColor: bgColor }}>
-      <QuoteAndAuthor
+      <QuoteBox
         randomQuote={randomQuote}
         quote={quote}
         author={author}
