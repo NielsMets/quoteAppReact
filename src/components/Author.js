@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function (props) {
   const { bgColor, author } = props;
   return (
